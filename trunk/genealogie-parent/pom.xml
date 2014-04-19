@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.maugtaurus.projects.genealogie.core</groupId>
+	<artifactId>genealogie-parent</artifactId>
+	<name>Projet parent de Généalogie</name>
+	<version>1.0-SNAPHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>genealogie-model</module>
+<!-- 		<module>genealogie-rest</module> -->
+	</modules>
+
+	<properties>
+		<project.version>1.0-SNAPHOT</project.version>
+		<jdk.source.version>1.6</jdk.source.version>
+		<jdk.target.version>1.6</jdk.target.version>
+		<maven.compiler-plugin.version>3.1</maven.compiler-plugin.version>
+		<junit.version>4.8</junit.version>
+
+		<org.hibernate.hibernate.version>4.0.0.Final</org.hibernate.hibernate.version>
+		<org.hibernate.tools.version>4.0.0-CR1</org.hibernate.tools.version>
+		<org.hibernate.entitymanager.version>4.0.0.Final</org.hibernate.entitymanager.version>
+		<org.hibernate.hibernate.core.version>4.0.0.Final</org.hibernate.hibernate.core.version>
+
+		<spring.version>4.0.0.RELEASE</spring.version>
+		<aspectj.version>1.6.3.RELEASE</aspectj.version>
+		<jackson.databind-version>2.2.3</jackson.databind-version>
+	</properties>
+</project>

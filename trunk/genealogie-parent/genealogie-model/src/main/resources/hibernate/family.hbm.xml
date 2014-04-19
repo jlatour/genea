@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.maugtaurus.projects.genealogie.persistance.model.family">
+	<class name="Family" table="FAMILY">
+		
+		<id type="int" name="id" column="ID">
+			<generator class="increment"/>
+		</id>
+		
+		<property name="label"></property>
+		
+        <set name="events" cascade="all" inverse="false" table="FAMILY_EVENTS">
+            <key>
+                <column name="FAMILY_ID" />
+            </key>
+            <many-to-many column="EVENT_ID" class="org.maugtaurus.projects.genealogie.persistance.model.event.Event" />
+        </set>
+
+        <many-to-one name="father" column="FATHER_ID" class="org.maugtaurus.projects.genealogie.persistance.model.person.Person" unique="true" cascade="all"></many-to-one>  
+        
+        <many-to-one name="mother" column="MOTHER_ID" class="org.maugtaurus.projects.genealogie.persistance.model.person.Person" unique="true" cascade="all"></many-to-one>  
+
+        <set name="children" cascade="all" inverse="false" table="FAMILY_CHILDREN">
+            <key>
+                <column name="FAMILY_ID" />
+            </key>
+            <many-to-many column="CHILD_ID" class="org.maugtaurus.projects.genealogie.persistance.model.person.Person" />
+        </set>
+	</class>
+</hibernate-mapping>

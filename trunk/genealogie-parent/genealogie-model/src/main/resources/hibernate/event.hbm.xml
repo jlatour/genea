@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.maugtaurus.projects.genealogie.persistance.model.event">
+
+	<class name="Event" table="EVENT" abstract="true">
+		
+		<id type="long" name="id" column="ID">
+			<generator class="increment"/>
+		</id>
+		
+		<discriminator column="EVENT_TYPE" type="java.lang.String" />
+		
+		<property name="date" type="timestamp" column="DATE" />
+
+		<property name="place" type="java.lang.String" column="PLACE" />
+
+		<property name="source" type="java.lang.String" column="SOURCE" />
+
+		<property name="note" type="java.lang.String" column="NOTE" />
+
+		<property name="eventType" insert="false" update="false">
+			<column name="EVENT_TYPE" not-null="true" check="EVENT_TYPE IN('BIRT','DEAT','BURI','MARR','CHR')"></column>
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">org.maugtaurus.projects.genealogie.persistance.model.event.EventType</param>
+				<param name="type">12</param>
+			</type>
+		</property>
+
+		<subclass name="Birth" discriminator-value="BIRT"/>
+		<subclass name="Death" discriminator-value="DEAT"/>
+
+	</class>
+
+</hibernate-mapping>

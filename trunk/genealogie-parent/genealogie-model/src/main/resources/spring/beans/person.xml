@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- Person business object -->
+   <bean id="personBo" class="org.maugtaurus.projects.genealogie.persistance.bo.person.impl.PersonBoImpl" >
+   		<property name="personDao" ref="personDao" />
+   </bean>
+ 
+   <!-- Person Data Access Object -->
+   <bean id="personDao" class="org.maugtaurus.projects.genealogie.persistance.dao.person.impl.PersonDaoImpl" >
+   		<property name="sessionFactory" ref="sessionFactory"></property>
+   </bean>
+   
+   		
+</beans>
