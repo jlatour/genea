@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- event business object -->
+   <bean id="eventBo" class="org.maugtaurus.projects.genealogie.persistance.bo.event.impl.EventBoImpl" >
+   		<property name="eventDao" ref="eventDao" />
+   </bean>
+ 
+   <!-- event Data Access Object -->
+   <bean id="eventDao" class="org.maugtaurus.projects.genealogie.persistance.dao.event.impl.EventDaoImpl" >
+   		<property name="sessionFactory" ref="sessionFactory"></property>
+   </bean>
+   
+   		
+</beans>
