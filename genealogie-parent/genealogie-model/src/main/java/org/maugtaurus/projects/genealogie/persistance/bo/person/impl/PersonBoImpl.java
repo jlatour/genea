@@ -62,7 +62,7 @@ public class PersonBoImpl implements PersonBo {
 		}
 	}
 
-	public Person getPersonById(int id) {
+	public Person getPersonById(long id) {
 		Person person = null;
 		if(id > 0){
 			person = personDao.getPersonById(id);

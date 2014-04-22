@@ -3,13 +3,12 @@ package org.maugtaurus.projects.genealogie.test.common;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Before;
-import org.maugtaurus.projects.genealogie.test.person.Test1_AddPerson;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class CommonTestCase {
 
-	private static final Log log = LogFactory.getLog(Test1_AddPerson.class);
+	private static final Log log = LogFactory.getLog(CommonTestCase.class);
 
 	private ApplicationContext appContext = null;
 	private final static String APPLICATION_CONTEXT = "application-test-context.xml";
