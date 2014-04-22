@@ -38,7 +38,7 @@ public class Test1_UniquenessEvent extends CommonTestCase{
 			birth2.setPlace("Corps");
 			birth2.setSource("biographie");
 			birth2.setNote("Eût à souffrir de son physique ingrat toute sa vie");
-			
+
 			person.setBirth(birth);
 			person.setBirth(birth2);
 			

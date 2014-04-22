@@ -16,7 +16,7 @@ public class PersonDaoImpl extends CustomHibernateDaoSupport implements PersonDa
 			if(testIfPersonAlreadyExist(person)){
 				throw new PersonException(PersonException.DUPLICATE_PERSON_EXCEPTION);
 			}
-			getHibernateTemplate().save(person);
+			getHibernateTemplate().saveOrUpdate(person);
 		} catch (Exception ex) {
 			throw ex;
 		}
@@ -30,8 +30,8 @@ public class PersonDaoImpl extends CustomHibernateDaoSupport implements PersonDa
 		}	
 	}
 
-	public Person getPersonById(int id) {
-		Person person = (Person)getHibernateTemplate().load(Person.class, id);
+	public Person getPersonById(long id) {
+		Person person = (Person)getHibernateTemplate().get(Person.class, id);
 		return person;
 	}
 	
