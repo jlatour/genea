@@ -18,10 +18,11 @@ public class Test2_CommonOperationsOnPerson extends CommonTestCase{
 	@Test
 	public void test() {
 		try {
+
 			PersonBo personBo = (PersonBo) getAppContext().getBean("personBo");
 			
 			getLog().debug("Create person");
-			Person createdPerson = createPerson("Valentin Valentinov", SexType.M, new DateTime(1998, 1, 10, 4, 57, 0, 0));
+			Person createdPerson = createPerson("Valentin Valentinov", SexType.MALE, new DateTime(1998, 1, 10, 4, 57, 0, 0));
 			personBo.save(createdPerson);
 			
 			getLog().debug("Update person");

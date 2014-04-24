@@ -54,7 +54,7 @@ public class Test1_AddFamily extends CommonTestCase{
 	private Person createFather(){
 		Person person = new Person();
 		person.setName("Père");
-		person.setSexType(SexType.M);
+		person.setSexType(SexType.MALE);
 
 		Birth birth = new Birth();
 		DateTime birthDate = new DateTime(1970, 9, 26, 14, 30, 0, 0);
@@ -75,7 +75,7 @@ public class Test1_AddFamily extends CommonTestCase{
 	private Person createMother(){
 		Person person = new Person();
 		person.setName("Mère");
-		person.setSexType(SexType.F);
+		person.setSexType(SexType.FEMALE);
 
 		Birth birth = new Birth();
 		DateTime birthDate = new DateTime(1969, 9, 18, 14, 30, 0, 0);
@@ -96,7 +96,7 @@ public class Test1_AddFamily extends CommonTestCase{
 	private Person createChild(){
 		Person person = new Person();
 		person.setName("Alexia Latour");
-		person.setSexType(SexType.F);
+		person.setSexType(SexType.FEMALE);
 
 		Birth birth = new Birth();
 		DateTime birthDate = new DateTime(1998, 1, 10, 4, 57, 0, 0);

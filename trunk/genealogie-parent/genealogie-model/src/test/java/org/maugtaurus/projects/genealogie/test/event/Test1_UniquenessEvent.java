@@ -23,7 +23,7 @@ public class Test1_UniquenessEvent extends CommonTestCase{
 			
 			Person person = new Person();
 			person.setName("Jérôme Latour");
-			person.setSexType(SexType.M);
+			person.setSexType(SexType.MALE);
 
 			Birth birth = new Birth();
 			DateTime birthDate = new DateTime(1970, 7, 3, 14, 30, 0, 0);

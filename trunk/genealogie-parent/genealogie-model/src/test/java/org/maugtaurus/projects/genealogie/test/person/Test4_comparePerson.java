@@ -35,7 +35,7 @@ public class Test4_comparePerson extends CommonTestCase{
 	private Person createPerson1(){
 		Person person = new Person();
 		person.setName("Gerald Ford");
-		person.setSexType(SexType.M);
+		person.setSexType(SexType.MALE);
 
 		Birth birth = new Birth();
 		DateTime birthDate = new DateTime(1944, 9, 26, 14, 30, 0, 0);
