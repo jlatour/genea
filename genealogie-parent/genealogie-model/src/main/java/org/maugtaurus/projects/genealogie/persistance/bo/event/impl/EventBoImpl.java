@@ -53,7 +53,7 @@ public class EventBoImpl implements EventBo {
 			
 			for(Event event : events){
 				
-				if(event.getEventType().equals(eventType)){
+				if(event != null && event.getEventType().equals(eventType)){
 					eventT.add(event.getEventType());
 					log.debug("event type added : " + eventT);
 				}
