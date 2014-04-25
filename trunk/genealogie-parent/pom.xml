@@ -10,8 +10,8 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>genealogie-model</module>
-<!-- 		<module>genealogie-rest</module> -->
+
+	<module>../genealogie-model</module>
 	</modules>
 
 	<properties>
