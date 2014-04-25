@@ -18,7 +18,7 @@
 
 		<property name="source" type="java.lang.String" column="SOURCE" />
 
-		<property name="note" type="java.lang.String" column="NOTE" />
+		<property name="note" type="text" column="NOTE" />
 
 		<property name="eventType" insert="false" update="false">
 			<column name="EVENT_TYPE" not-null="true" check="EVENT_TYPE IN('BIRT','DEAT','BURI','MARR','CHR')"></column>

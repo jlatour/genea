@@ -15,7 +15,7 @@ public class Person implements Serializable {
 
 	private long id;
 	private String name;
-	private String lastName;
+//	private String lastName;
 	private SexType sexType;
 	private Set<Event> events;
 
@@ -39,13 +39,13 @@ public class Person implements Serializable {
 		this.name = name;
 	}
 
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+//	public String getLastName() {
+//		return lastName;
+//	}
+//
+//	public void setLastName(String lastName) {
+//		this.lastName = lastName;
+//	}
 
 	public SexType getSexType() {
 		return sexType;
@@ -142,7 +142,7 @@ public class Person implements Serializable {
 	@Override
 	public String toString() {
 		String toBeReturned = "Name : " + getName();
-		toBeReturned += ", Last name : " + getLastName();
+//		toBeReturned += ", Last name : " + getLastName();
 		toBeReturned += ", Sex : " + getSexType();
 		toBeReturned += ", Event(s) : " + System.getProperty("line.separator") + getEvents();
 		return toBeReturned;

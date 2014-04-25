@@ -14,12 +14,12 @@
 			<column name="NAME" length="500" />
 		</property>
 		
-		<property name="lastName" type="string">
-			<column name="LASTNAME" length="500" />
-		</property>
+<!-- 		<property name="lastName" type="string"> -->
+<!-- 			<column name="LASTNAME" length="500" /> -->
+<!-- 		</property> -->
 
 		<property name="sexType">
-			<column name="SEX_TYPE" not-null="true" check="SEX_TYPE IN('M', 'F')"></column>
+			<column name="SEX_TYPE" not-null="true" check="SEX_TYPE IN('MALE', 'FEMALE')"></column>
 			<type name="org.hibernate.type.EnumType">
 				<param name="enumClass">org.maugtaurus.projects.genealogie.persistance.model.person.SexType</param>
 				<param name="type">12</param>
