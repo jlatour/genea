@@ -30,6 +30,8 @@
 
 		<subclass name="Birth" discriminator-value="BIRT"/>
 		<subclass name="Death" discriminator-value="DEAT"/>
+		<subclass name="Burial" discriminator-value="BURI"/>
+		<subclass name="Christening" discriminator-value="CHR"/>
 
 	</class>
 

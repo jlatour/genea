@@ -6,4 +6,5 @@ public interface PersonDao {
 	void save(Person person) throws Exception;
 	void delete(Person person) throws Exception;
 	Person getPersonById(long id);
+	Person getPersonByNameAndAge(Person person);
 }

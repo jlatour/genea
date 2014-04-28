@@ -64,7 +64,7 @@ public class EventBoImpl implements EventBo {
 			}
 			
 		}
-		return true; 
-		
+		return true;
 	}
+
 }

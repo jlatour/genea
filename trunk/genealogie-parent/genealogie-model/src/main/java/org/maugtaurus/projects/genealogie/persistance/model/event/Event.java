@@ -107,13 +107,11 @@ public abstract class Event implements Serializable{
 	
 	@Override
 	public String toString() {
-		String toBeReturned = "Date : " + getDate();
-		toBeReturned += ", Type : " + getEventType();
-		toBeReturned += ", Date : " + getDate();
-		toBeReturned += ", Place : " + getPlace();
+		String toBeReturned = "Date: " + getDate();
+		toBeReturned += ", Type: " + getEventType();
+		toBeReturned += ", Place: " + getPlace();
 		toBeReturned += ", Source: " + getSource();
 		toBeReturned += ", Note: " + getNote();
-		toBeReturned += ", Source: " + getSource();
 		return toBeReturned;
 	}
 }

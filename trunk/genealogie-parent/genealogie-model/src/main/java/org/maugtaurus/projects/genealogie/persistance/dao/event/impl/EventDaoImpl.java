@@ -7,8 +7,7 @@ import org.maugtaurus.projects.genealogie.persistance.util.CustomHibernateDaoSup
 public class EventDaoImpl extends CustomHibernateDaoSupport implements EventDao {
 
 	public void save(Event event) {
-		getHibernateTemplate().save(event);
-		
+		getHibernateTemplate().saveOrUpdate(event);
 	}
 
 	public void delete(Event event) {

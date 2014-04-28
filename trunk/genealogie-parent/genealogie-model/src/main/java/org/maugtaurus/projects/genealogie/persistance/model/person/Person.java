@@ -116,7 +116,17 @@ public class Person implements Serializable {
 		}
 		return null;
 	}
-
+	
+	/**
+	 * Fusion with another person object, without the id 
+	 * @param person
+	 */
+	public void fusionWith(Person person){
+		name = person.getName();
+		sexType = person.getSexType();
+		events = person.getEvents();
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) {

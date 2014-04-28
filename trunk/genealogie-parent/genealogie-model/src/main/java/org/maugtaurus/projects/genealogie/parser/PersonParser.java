@@ -37,7 +37,7 @@ public class PersonParser {
 			}
 			
 			// Sex part
-			if(indi.sex != null && indi.sex.value.equalsIgnoreCase(MALE)){
+			if((indi.sex == null) || (indi.sex != null && indi.sex.value.equalsIgnoreCase(MALE))){
 				sexType = SexType.MALE;
 			}
 			else if(indi.sex != null && indi.sex.value.equalsIgnoreCase(FEMALE)){
@@ -49,7 +49,7 @@ public class PersonParser {
 			if(indi.events != null){
 				for(IndividualEvent individualEvent : indi.events){
 					Event event = null;
-
+					
 					switch(individualEvent.type){
 					case BIRTH:
 						event = new Birth();
@@ -73,11 +73,16 @@ public class PersonParser {
 						event.setNote(SimpleParser.parse(indi.notes));
 					}
 					
-					events.add(event);
+					if(event != null){
+						events.add(event);
+					}
+					
 				}
 				
 			}
 			
+		}else{
+			// TODO Create an unknown person
 		}
 	}
 	
