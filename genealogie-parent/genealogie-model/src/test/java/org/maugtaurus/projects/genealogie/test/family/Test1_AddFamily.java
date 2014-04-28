@@ -38,7 +38,7 @@ public class Test1_AddFamily extends CommonTestCase{
 
 			
 			Family family = new Family();
-			family.setLabel("Famille Latour");
+//			family.setLabel("Famille Latour");
 			family.setFather(father);
 			family.setMother(mother);
 			family.setChildren(children);

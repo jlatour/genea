@@ -3,7 +3,6 @@ package org.maugtaurus.projects.genealogie.persistance.dao.person.impl;
 import java.util.List;
 
 import org.maugtaurus.projects.genealogie.persistance.dao.person.PersonDao;
-import org.maugtaurus.projects.genealogie.persistance.exception.PersonException;
 import org.maugtaurus.projects.genealogie.persistance.model.person.Person;
 import org.maugtaurus.projects.genealogie.persistance.util.CustomHibernateDaoSupport;
 
@@ -13,10 +12,15 @@ public class PersonDaoImpl extends CustomHibernateDaoSupport implements PersonDa
 	
 	public void save(Person person) throws Exception {
 		try {
-			if(testIfPersonAlreadyExist(person)){
-				throw new PersonException(PersonException.DUPLICATE_PERSON_EXCEPTION);
+			Person testedPerson = getPersonIfAlreadyExists(person);
+			if(testedPerson != null){
+				// get this person and merge it
+				testedPerson.fusionWith(person);
+				getHibernateTemplate().update(testedPerson);
 			}
-			getHibernateTemplate().saveOrUpdate(person);
+			else{
+				getHibernateTemplate().save(person);
+			}
 		} catch (Exception ex) {
 			throw ex;
 		}
@@ -30,21 +34,29 @@ public class PersonDaoImpl extends CustomHibernateDaoSupport implements PersonDa
 		}	
 	}
 
-	public Person getPersonById(long id) {
-		Person person = (Person)getHibernateTemplate().get(Person.class, id);
-		return person;
-	}
-	
 	@SuppressWarnings("unchecked")
-	private boolean testIfPersonAlreadyExist(Person person){
+	public Person getPersonIfAlreadyExists(Person person){
 		Person targetedPerson = null;
 		List<Person> allPerson = getHibernateTemplate().find(QUERY_PERSON_BY_NAME, person.getName());
 		if(allPerson != null && allPerson.size() > 0){
 			targetedPerson = allPerson.get(0);
 			if(targetedPerson.equals(person)){
-				return true;
+				return targetedPerson;
 			}
 		}
-		return false;
+		return person;
 	}
+
+	@Override
+	public Person getPersonByNameAndAge(Person person) {
+		
+		return null;
+	}
+
+	@Override
+	public Person getPersonById(long id) {
+		Person person = (Person)getHibernateTemplate().get(Person.class, id);
+		return person;
+	}
+
 }

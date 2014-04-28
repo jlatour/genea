@@ -14,7 +14,7 @@ public class Family implements Serializable {
 	private static final long serialVersionUID = -1372171543089502457L;
 
 	private int id;
-	private String label;
+//	private String label;
 	private Set<Event> events;
 	private Person father;
 	private Person mother;
@@ -31,14 +31,14 @@ public class Family implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
-	}
+//
+//	public String getLabel() {
+//		return label;
+//	}
+//
+//	public void setLabel(String label) {
+//		this.label = label;
+//	}
 
 	public Set<Event> getEvents() {
 		return events;

@@ -20,40 +20,44 @@ public class PersonBoImpl implements PersonBo {
 	PersonDao personDao;
 
 	public void save(Person person) throws Exception {
-
 		try {
-			// Test for unique event
-			boolean testForBIRT = EventBoImpl.isEventUnique(person.getEvents(), EventType.BIRT);
-			boolean testForBURI = EventBoImpl.isEventUnique(person.getEvents(), EventType.BURI);
-			boolean testForDEAT = EventBoImpl.isEventUnique(person.getEvents(), EventType.DEAT);
-			boolean testForCHR = EventBoImpl.isEventUnique(person.getEvents(), EventType.CHR);
-
-			log.debug("Test for the uniqueness of event BIRT : " + testForBIRT);
-			log.debug("Test for the uniqueness of event BURI : " + testForBURI);
-			log.debug("Test for the uniqueness of event DEAT : " + testForDEAT);
-			log.debug("Test for the uniqueness of event CHR  : " + testForCHR);
-
-			if (!testForBIRT) {
-				throw new EventException(EventException.UNIQUE_EVENT_BIRT_EXCEPTION);
-			}
-			if (!testForBURI) {
-				throw new EventException(EventException.UNIQUE_EVENT_BURI_EXCEPTION);
-			}
-			if (!testForDEAT) {
-				throw new EventException(EventException.UNIQUE_EVENT_DEAT_EXCEPTION);
-			}
-			if (!testForCHR) {
-				throw new EventException(EventException.UNIQUE_EVENT_CHR_EXCEPTION);
-			}
-
+			testForUniquenessEvent(person);
 			personDao.save(person);
-
 		} catch (Exception ex) {
 			throw ex;
 		}
-
 	}
+	
+	/**
+	 * Test for the uniqueness of the most important event
+	 * @param person
+	 * @throws Exception
+	 */
+	public void testForUniquenessEvent(Person person) throws Exception{
+		boolean testForBIRT = EventBoImpl.isEventUnique(person.getEvents(), EventType.BIRT);
+		boolean testForBURI = EventBoImpl.isEventUnique(person.getEvents(), EventType.BURI);
+		boolean testForDEAT = EventBoImpl.isEventUnique(person.getEvents(), EventType.DEAT);
+		boolean testForCHR = EventBoImpl.isEventUnique(person.getEvents(), EventType.CHR);
 
+		log.debug("Test for the uniqueness of event BIRT : " + testForBIRT);
+		log.debug("Test for the uniqueness of event BURI : " + testForBURI);
+		log.debug("Test for the uniqueness of event DEAT : " + testForDEAT);
+		log.debug("Test for the uniqueness of event CHR  : " + testForCHR);
+
+		if (!testForBIRT) {
+			throw new EventException(EventException.UNIQUE_EVENT_BIRT_EXCEPTION);
+		}
+		if (!testForBURI) {
+			throw new EventException(EventException.UNIQUE_EVENT_BURI_EXCEPTION);
+		}
+		if (!testForDEAT) {
+			throw new EventException(EventException.UNIQUE_EVENT_DEAT_EXCEPTION);
+		}
+		if (!testForCHR) {
+			throw new EventException(EventException.UNIQUE_EVENT_CHR_EXCEPTION);
+		}
+	}
+	
 	public void delete(Person person) throws Exception {
 		try {
 			personDao.delete(person);
@@ -61,7 +65,7 @@ public class PersonBoImpl implements PersonBo {
 			throw ex;
 		}
 	}
-
+	
 	public Person getPersonById(long id) {
 		Person person = null;
 		if(id > 0){

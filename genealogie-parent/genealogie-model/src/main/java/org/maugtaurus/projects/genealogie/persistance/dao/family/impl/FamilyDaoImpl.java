@@ -7,7 +7,7 @@ import org.maugtaurus.projects.genealogie.persistance.util.CustomHibernateDaoSup
 public class FamilyDaoImpl extends CustomHibernateDaoSupport implements FamilyDao {
 
 	public void save(Family family) {
-		getHibernateTemplate().save(family);
+		getHibernateTemplate().saveOrUpdate(family);
 	}
 
 	public void delete(Family family) {

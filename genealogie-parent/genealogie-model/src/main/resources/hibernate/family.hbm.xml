@@ -9,7 +9,7 @@
 			<generator class="increment"/>
 		</id>
 		
-		<property name="label"></property>
+<!-- 		<property name="label"></property> -->
 		
         <set name="events" cascade="all" inverse="false" table="FAMILY_EVENTS">
             <key>
@@ -18,11 +18,21 @@
             <many-to-many column="EVENT_ID" class="org.maugtaurus.projects.genealogie.persistance.model.event.Event" />
         </set>
 
-        <many-to-one name="father" column="FATHER_ID" class="org.maugtaurus.projects.genealogie.persistance.model.person.Person" unique="true" cascade="all"></many-to-one>  
+        <many-to-one 
+        name="father" 
+        column="FATHER_ID" 
+        class="org.maugtaurus.projects.genealogie.persistance.model.person.Person" 
+        lazy="false"
+        cascade="save-update"></many-to-one>  
         
-        <many-to-one name="mother" column="MOTHER_ID" class="org.maugtaurus.projects.genealogie.persistance.model.person.Person" unique="true" cascade="all"></many-to-one>  
+        <many-to-one 
+        name="mother" 
+        column="MOTHER_ID" 
+        class="org.maugtaurus.projects.genealogie.persistance.model.person.Person" 
+        lazy="false"
+        cascade="save-update"></many-to-one>  
 
-        <set name="children" cascade="all" inverse="false" table="FAMILY_CHILDREN">
+        <set name="children" inverse="false" table="FAMILY_CHILDREN" cascade="save-update">
             <key>
                 <column name="FAMILY_ID" />
             </key>
